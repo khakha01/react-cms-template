@@ -1,0 +1,56 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "members": "Members",
+    "settings": "Settings",
+    "logout": "Logout",
+    "language": "Language",
+    "search": "Search",
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "actions": "Actions"
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to admin panel"
+  },
+
+  "user": {
+    "list": "User List",
+    "create": "Create User",
+    "edit": "Edit User",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status"
+  },
+
+  "members": {
+    "list": "Member List",
+    "create": "Create Member",
+    "edit": "Edit Member",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status"
+  },
+
+  "auth": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "remember": "Remember me"
+  },
+
+  "message": {
+    "create_success": "Created successfully",
+    "update_success": "Updated successfully",
+    "delete_success": "Deleted successfully",
+    "confirm_delete": "Are you sure you want to delete?"
+  }
+}

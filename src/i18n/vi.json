@@ -1,0 +1,56 @@
+{
+  "common": {
+    "dashboard": "Bảng điều khiển",
+    "users": "Người dùng",
+    "members": "Thành viên",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "language": "Ngôn ngữ",
+    "search": "Tìm kiếm",
+    "create": "Thêm mới",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "actions": "Hành động"
+  },
+
+  "dashboard": {
+    "title": "Bảng điều khiển",
+    "welcome": "Chào mừng bạn đến trang quản trị"
+  },
+
+  "user": {
+    "list": "Danh sách người dùng",
+    "create": "Thêm người dùng",
+    "edit": "Chỉnh sửa người dùng",
+    "name": "Tên",
+    "email": "Email",
+    "role": "Vai trò",
+    "status": "Trạng thái"
+  },
+
+  "member": {
+    "list": "Danh sách thành viên",
+    "create": "Thêm thành viên",
+    "edit": "Chỉnh sửa thành viên",
+    "name": "Tên",
+    "email": "Email",
+    "role": "Vai trò",
+    "status": "Trạng thái"
+  },
+
+  "auth": {
+    "login": "Đăng nhập",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "remember": "Ghi nhớ đăng nhập"
+  },
+
+  "message": {
+    "create_success": "Tạo mới thành công",
+    "update_success": "Cập nhật thành công",
+    "delete_success": "Xóa thành công",
+    "confirm_delete": "Bạn có chắc chắn muốn xóa?"
+  }
+}
