@@ -28,12 +28,19 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-      <button className="collapse-btn" onClick={toggle}>
-        <Menu />
-      </button>
-
-      <nav className="sidebar-nav">{NAVIGATION_MENU_ITEM.map(renderItem)}</nav>
+    <aside className={`sidebar px-4 ${collapsed ? "collapsed" : ""}`}>
+      <div className="flex justify-between items-center border-b border-gray-300 pb-4">
+        {!collapsed && <img src="/img/logo.png" alt="cms" className="object-cover w-32" />}
+        <button
+          className="collapse-btn border border-gray-300 p-1.5 mt-2 rounded-xl"
+          onClick={toggle}
+        >
+          <Menu />
+        </button>
+      </div>
+      <nav className="sidebar-nav pt-6">
+        {NAVIGATION_MENU_ITEM.map(renderItem)}
+      </nav>
     </aside>
   );
 }

@@ -1,6 +1,10 @@
 import { LayoutDashboard, List, Plus, User2Icon } from "lucide-react";
 import type { NavigationItem } from "../../../types/navigation";
 
+
+/**
+ * khai báo cấu hình (config) cho menu điều hướng
+ */
 export const NAVIGATION_MENU_ITEM: NavigationItem[] = [
   {
     id: "common.dashboard",

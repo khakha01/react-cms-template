@@ -3,12 +3,7 @@
   min-height: 100vh;
 }
 
-.sidebar {
-  width: 240px;
-  background: #1f2937;
-  color: white;
-  transition: width 0.3s;
-}
+
 
 .sidebar.collapsed {
   width: 70px;

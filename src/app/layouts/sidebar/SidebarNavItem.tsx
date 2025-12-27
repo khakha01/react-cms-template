@@ -28,14 +28,13 @@ export default function SidebarNavItem({
 
   if (item.children?.length) {
     return (
-      <div className="nav-group">
+      <div className="nav-group pb-3">
         <button
-          className="nav-parent flex items-center justify-between w-full"
+          className={`nav-parent flex items-center w-full text-sm ${collapsed ? "justify-center" : "justify-between"}`}
           onClick={handleToggle}
-          // Optional: thêm cursor-not-allowed khi collapsed nếu muốn
           style={{ cursor: collapsed ? "default" : "pointer" }}
         >
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center text-sm">
             {item.icon}
             {!collapsed && <span>{t(item.title)}</span>}
           </div>
@@ -53,7 +52,7 @@ export default function SidebarNavItem({
         {/* Chỉ render children khi không collapsed */}
         {!collapsed && (
           <div
-            className={`nav-children pl-6 transition-all duration-300 ease-in-out overflow-hidden ${
+            className={`nav-children pt-3 pl-6 transition-all duration-300 ease-in-out overflow-hidden ${
               effectiveIsOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
@@ -66,9 +65,11 @@ export default function SidebarNavItem({
 
   // Leaf item
   return (
-    <NavLink to={item.path!} className="nav-link flex gap-2 items-center">
-      {item.icon}
+    <NavLink to={item.path!} className="!p-0 !pb-6">
+     <div className={`nav-link flex gap-2 items-center text-sm text-black ${collapsed && "justify-center"}`}>
+       {item.icon}
       {!collapsed && <span>{t(item.title)}</span>}
+     </div>
     </NavLink>
   );
 }
