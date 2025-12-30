@@ -1,8 +1,5 @@
 {
   "common": {
-    "dashboard": "Bảng điều khiển",
-    "users": "Người dùng",
-    "members": "Thành viên",
     "settings": "Cài đặt",
     "logout": "Đăng xuất",
     "language": "Ngôn ngữ",
@@ -12,7 +9,14 @@
     "delete": "Xóa",
     "save": "Lưu",
     "cancel": "Hủy",
-    "actions": "Hành động"
+    "actions": "Hành động",
+    "dashboard": "Bảng điều khiển",
+    "users": "Người dùng",
+    "members": "Thành viên",
+    "categories": "Danh mục",
+    "books": "Quản lý sách",
+    "editProfile": "Chỉnh sửa cá nhân",
+    "support": "Hỗ trợ"
   },
 
   "dashboard": {
@@ -23,21 +27,25 @@
   "user": {
     "list": "Danh sách người dùng",
     "create": "Thêm người dùng",
-    "edit": "Chỉnh sửa người dùng",
-    "name": "Tên",
-    "email": "Email",
-    "role": "Vai trò",
-    "status": "Trạng thái"
+    "edit": "Chỉnh sửa người dùng"
   },
 
   "member": {
     "list": "Danh sách thành viên",
     "create": "Thêm thành viên",
-    "edit": "Chỉnh sửa thành viên",
-    "name": "Tên",
-    "email": "Email",
-    "role": "Vai trò",
-    "status": "Trạng thái"
+    "edit": "Chỉnh sửa thành viên"
+  },
+
+  "category": {
+    "list": "Danh sách danh mục",
+    "create": "Thêm danh mục",
+    "edit": "Chỉnh sửa danh mục"
+  },
+
+  "book": {
+    "list": "Danh sách sách",
+    "create": "Thêm sách",
+    "edit": "Chỉnh sửa sách"
   },
 
   "auth": {

@@ -1,8 +1,5 @@
 {
   "common": {
-    "dashboard": "Dashboard",
-    "users": "Users",
-    "members": "Members",
     "settings": "Settings",
     "logout": "Logout",
     "language": "Language",
@@ -12,7 +9,14 @@
     "delete": "Delete",
     "save": "Save",
     "cancel": "Cancel",
-    "actions": "Actions"
+    "actions": "Actions",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "members": "Members",
+    "categories": "Categories",
+    "books": "Management Books",
+    "editProfile": "Edit Profile",
+    "support": "Support"
   },
 
   "dashboard": {
@@ -23,21 +27,25 @@
   "user": {
     "list": "User List",
     "create": "Create User",
-    "edit": "Edit User",
-    "name": "Name",
-    "email": "Email",
-    "role": "Role",
-    "status": "Status"
+    "edit": "Edit User"
   },
 
-  "members": {
+  "member": {
     "list": "Member List",
     "create": "Create Member",
-    "edit": "Edit Member",
-    "name": "Name",
-    "email": "Email",
-    "role": "Role",
-    "status": "Status"
+    "edit": "Edit Member"
+  },
+
+  "category": {
+    "list": "Category List",
+    "create": "Create Category",
+    "edit": "Edit Category"
+  },
+
+  "book": {
+    "list": "Book List",
+    "create": "Create Book",
+    "edit": "Edit Book"
   },
 
   "auth": {

@@ -28,8 +28,8 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className={`sidebar px-4 ${collapsed ? "collapsed" : ""}`}>
-      <div className="flex justify-between items-center border-b border-gray-300 pb-4">
+    <aside className={`sidebar flex-col overflow-y-auto border-r border-gray-200 bg-white px-5 transition-all duration-300 xl:static xl:translate-x-0 dark:border-gray-800 dark:bg-black -translate-x-full ${collapsed ? "collapsed" : "fixed top-0 left-0 z-9999 flex min-h-screen w-[290px]"}`}>
+      <div className={`flex items-center border-b border-gray-300 pb-4 ${collapsed ? "justify-center pt-3" : "justify-between"}`}>
         {!collapsed && <img src="/img/logo.png" alt="cms" className="object-cover w-32" />}
         <button
           className="collapse-btn border border-gray-300 p-1.5 mt-2 rounded-xl"

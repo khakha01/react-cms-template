@@ -20,17 +20,25 @@ export default function SidebarNavItem({
   t,
   renderChild,
 }: Props) {
-  // Nếu sidebar collapsed → ép buộc không mở submenu nào
   const effectiveIsOpen = collapsed ? false : isOpen;
-
-  // Nếu collapsed → không cho click để mở submenu
   const handleToggle = collapsed ? undefined : () => toggleMenu(item.id);
 
+  // Class chung cho hover
+  const hoverClass = "hover:bg-gray-100 hover:text-blue-600";
+
+  // Class khi active: parent mở hoặc leaf active (sẽ xử lý riêng)
+  const activeClass = "bg-blue-50 text-blue-600 font-medium";
+
   if (item.children?.length) {
+    // ====== PARENT ITEM (có con) ======
+    const isParentActive = effectiveIsOpen; // đơn giản: đang mở = active
+
     return (
       <div className="nav-group pb-3">
         <button
-          className={`nav-parent flex items-center w-full text-sm ${collapsed ? "justify-center" : "justify-between"}`}
+          className={`nav-parent flex items-center w-full text-sm rounded-lg px-3 py-2.5 transition-colors ${
+            collapsed ? "justify-center" : "justify-between"
+          } ${isParentActive ? activeClass : "text-gray-700"} ${hoverClass}`}
           onClick={handleToggle}
           style={{ cursor: collapsed ? "default" : "pointer" }}
         >
@@ -38,7 +46,6 @@ export default function SidebarNavItem({
             {item.icon}
             {!collapsed && <span>{t(item.title)}</span>}
           </div>
-
           {!collapsed && (
             <ChevronDown
               size={16}
@@ -49,27 +56,39 @@ export default function SidebarNavItem({
           )}
         </button>
 
-        {/* Chỉ render children khi không collapsed */}
         {!collapsed && (
           <div
-            className={`nav-children pt-3 pl-6 transition-all duration-300 ease-in-out overflow-hidden ${
-              effectiveIsOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            className={`nav-children transition-all duration-300 ease-in-out overflow-hidden ${
+              effectiveIsOpen
+                ? "max-h-96 opacity-100 pt-3 pl-6"
+                : "max-h-0 opacity-0"
             }`}
           >
-            {item.children.map(renderChild)}
+            <div className={effectiveIsOpen ? "" : "h-0"}>
+              {item.children.map(renderChild)}
+            </div>
           </div>
         )}
       </div>
     );
   }
 
-  // Leaf item
+  // ====== LEAF ITEM (không có con) ======
   return (
-    <NavLink to={item.path!} className="!p-0 !pb-6">
-     <div className={`nav-link flex gap-2 items-center text-sm text-black ${collapsed && "justify-center"}`}>
-       {item.icon}
-      {!collapsed && <span>{t(item.title)}</span>}
-     </div>
+    <NavLink to={item.path!} end className="!p-0 !pb-4">
+      {({ isActive }) => (
+        <div
+          className={`
+        nav-link flex gap-2 items-center text-sm rounded-lg px-3 py-2.5 transition-colors
+        ${collapsed ? "justify-center" : ""}
+        ${isActive ? activeClass : "text-gray-700"}
+        ${hoverClass}
+      `}
+        >
+          {item.icon}
+          {!collapsed && <span>{t(item.title)}</span>}
+        </div>
+      )}
     </NavLink>
   );
 }

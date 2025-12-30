@@ -6,8 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { createUserSchema } from "../schema";
 import type { CreateUserForm } from "../schema";
 import { toast } from "sonner";
-import { detailUser, updateUser } from "@/mock/user-mock";
 import { useEffect } from "react";
+import { detailUser, updateUser } from "@/mock";
 
 export default function EditUser() {
   const { id } = useParams();
@@ -55,12 +55,11 @@ export default function EditUser() {
   };
 
   return (
-    <div className="p-6">
       <div className="transition-content w-full px-(--margin-x) pt-5 lg:pt-6">
         <div className="min-w-0">
           <h1 className="text-xl font-bold uppercase mb-4">Users Update</h1>
-          <div className="mt-6 w-1/2">
-            <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mt-4 w-1/2 p-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+            <form onSubmit={handleSubmit(onSubmit)} className="">
               <div className="flex flex-col gap-6">
                 <div className="space-y-1">
                   <label htmlFor="name" className="text-sm font-medium">
@@ -91,6 +90,7 @@ export default function EditUser() {
                     Password
                   </label>
                   <Input
+                    type="password"
                     {...register("password")}
                     placeholder="Enter password"
                   />
@@ -102,10 +102,19 @@ export default function EditUser() {
                 </div>
 
                 <div className="flex justify-end space-x-4">
-                  <Button onClick={() => navigate("/admin/users")}>
+                  <Button
+                    type="button"
+                    onClick={() => navigate("/admin/users")}
+                    className="shadow-theme-xs inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-700 ring-1 ring-gray-300 transition hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-400 dark:ring-gray-700 dark:hover:bg-white/[0.03]"
+                  >
                     Cancel
                   </Button>
-                  <Button type="submit" disabled={isSubmitting}>
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                  className="bg-green-500 shadow-theme-xs hover:bg-green-600 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white transition"
+                  >
                     {isSubmitting ? "Creating..." : "Update user"}
                   </Button>
                 </div>
@@ -114,6 +123,5 @@ export default function EditUser() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

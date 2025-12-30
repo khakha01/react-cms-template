@@ -6,19 +6,19 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import { useState } from "react";
-import type { User } from "./user-api";
-import { userColumns } from "./user-columns";
+import { memberColumns } from "./MemberColumns";
+import type { Member } from "@/app/pages/member-management/list/member-api";
 
-type UserTableProps = {
-  data: User[];
+type MemberTableProps = {
+  data: Member[];
 };
 
-export default function UserTable({ data }: UserTableProps) {
+export default function MemberTable({ data }: MemberTableProps) {
   const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
     data,
-    columns: userColumns,
+    columns: memberColumns,
     state: {
       globalFilter,
     },
@@ -31,44 +31,57 @@ export default function UserTable({ data }: UserTableProps) {
   return (
     <div>
       {/* Search */}
-      <input
-        value={globalFilter}
-        onChange={(e) => setGlobalFilter(e.target.value)}
-        placeholder="Search users..."
-        className="border px-3 py-2 rounded-xl mb-4"
-      />
+      <div className="border-b border-gray-200 px-5 py-4 dark:border-gray-800">
+        <input
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+          placeholder="Search members..."
+          className="border px-3 py-2 rounded-xl"
+        />
+      </div>
 
       {/* Table */}
-      <table className="table-auto w-full border-collapse">
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id} className="border px-2 py-1 text-left">
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} className="border px-2 py-1">
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+   <div className="h-full w-full overflow-scroll">
+        <table className="w-full min-w-max table-auto text-left">
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr
+                key={headerGroup.id}
+                className="border-b border-gray-200 dark:divide-gray-800 dark:border-gray-800"
+              >
+                {headerGroup.headers.map((header) => (
+                  <th
+                    key={header.id}
+                    className="cursor-pointer px-5 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400"
+                  >
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody className="divide-x divide-y divide-gray-200 dark:divide-gray-800">
+            {table.getRowModel().rows.map((row) => (
+              <tr
+                key={row.id}
+                className="transition hover:bg-gray-50 dark:hover:bg-gray-900"
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id} className="px-4 py-3 whitespace-nowrap">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between mt-4 gap-4 flex-wrap">
+      <div className="flex items-center justify-between mt-4 gap-4 flex-wrap px-4 py-6">
         {/* LEFT: Page size */}
         <div className="flex items-center gap-2">
           <span>Show</span>

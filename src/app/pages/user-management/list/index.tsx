@@ -1,22 +1,32 @@
-import UserTable from "./user-table";
+import UserTable from "../../../../components/pages/user-management/UserTable";
 import { usersMock } from "../../../../mock/user-mock";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export default function UserList() {
+
   return (
-    <div className="p-6">
+    <div>
       <div className="flex justify-between">
-        <h1 className="text-xl font-bold uppercase mb-4">Users List</h1>
-      <Link to="/admin/users/create">
-        <Button className="rounded-lg bg-gradient-to-r from-sky-400 to-blue-600 px-5 py-2 text-white duration-100 ease-out [contain:paint] hover:opacity-[.85] focus:opacity-[.85] active:translate-y-px">
-          Add User
-        </Button>
-      </Link>
+        <h1 className="text-xl font-bold uppercase mb-4">Users </h1>
       </div>
-      
-      {/* List table */}
-      <UserTable data={usersMock} />
+
+      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+        <div className="flex flex-col justify-between gap-5 border-b border-gray-200 p-4 sm:flex-row sm:items-center dark:border-gray-800">
+          <div>
+            <h2 className="text-xl font-bold uppercase">Users List</h2>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Manage all system users.</span>
+          </div>
+          <Link to="/admin/users/create">
+            <Button className="bg-blue-500 shadow-theme-xs hover:bg-blue-600 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white transition">
+              Add User
+            </Button>
+          </Link>
+        </div>
+
+        {/* List table */}
+        <UserTable data={usersMock} />
+      </div>
     </div>
   );
 }

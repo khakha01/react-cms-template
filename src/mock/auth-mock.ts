@@ -30,3 +30,12 @@ export const loginMock = async ({email, password}: LoginPayload) => {
         },500);
     })
 }
+
+export const logoutMock = async () => {
+    return new Promise<void>((resolve)=> {
+        setTimeout(()=>{
+            localStorage.removeItem("authToken");
+            resolve();
+        },500)
+    })
+}

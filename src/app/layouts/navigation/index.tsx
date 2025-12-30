@@ -1,4 +1,4 @@
-import { LayoutDashboard, List, Plus, User2Icon } from "lucide-react";
+import { BookOpen, LayoutDashboard, LayoutGrid, List, Plus, User2Icon, UserStar } from "lucide-react";
 import type { NavigationItem } from "../../../types/navigation";
 
 
@@ -34,7 +34,7 @@ export const NAVIGATION_MENU_ITEM: NavigationItem[] = [
   {
     id: "common.members",
     title: "common.members",
-    icon: <User2Icon/>,
+    icon: <UserStar />,
     children: [
       {
         id: "members.list",
@@ -50,4 +50,43 @@ export const NAVIGATION_MENU_ITEM: NavigationItem[] = [
       },
     ],
   },
+  {
+    id: "common.categories",
+    title: "common.categories",
+    icon: <LayoutGrid />,
+    children: [
+      {
+        id: "categories.list",
+        title: "category.list",
+        path: "/admin/categories",
+        icon: <List />,
+      },
+      {
+        id: "categories.create",
+        title: "category.create",
+        path: "/admin/categories/create",
+        icon: <Plus />,
+      },
+    ],
+  },
+  {
+    id: "common.books",
+    title: "common.books",
+    icon: <BookOpen />,
+    children: [
+      {
+        id: "books.list",
+        title: "book.list",
+        path: "/admin/books",
+        icon: <List />,
+      },
+      {
+        id: "books.create",
+        title: "book.create",
+        path: "/admin/books/create",
+        icon: <Plus />,
+      },
+    ],
+  },
+  
 ];
